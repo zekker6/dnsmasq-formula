@@ -3,7 +3,7 @@
 {%- for address, destination in addresses|dictsort -%}
 {%- if destination is mapping -%}
 {%- for address_inner, destination_inner in destination|dictsort -%}
-address=/{{ address }}.{{ address_inner }}/{{ destination }}
+address=/{{ address_inner }}.{{ address }}/{{ destination_inner }}
 {%- endfor -%}
 {%- else -%}
 address=/{{ address }}/{{ destination }}
