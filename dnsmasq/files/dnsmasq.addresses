@@ -1,5 +1,11 @@
 {%- from "dnsmasq/map.jinja" import dnsmasq with context %}
 {%- set addresses = dnsmasq.get('addresses', {}) -%}
 {%- for address, destination in addresses|dictsort -%}
+{%- if destination is mapping -%}
+{%- for address_inner, destination_inner in destination|dictsort -%}
+address=/{{ address }}.{{ address_inner }}/{{ destination }}
+{%- endfor -%}
+{%- else -%}
 address=/{{ address }}/{{ destination }}
+{%- endif -%}
 {% endfor -%}
