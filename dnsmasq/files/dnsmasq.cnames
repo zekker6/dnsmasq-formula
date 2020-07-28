@@ -1,4 +1,4 @@
-{%- set dnsmasq = pillar.get('dnsmasq', {}) -%}
+{%- from "dnsmasq/map.jinja" import dnsmasq with context %}
 {%- set cnames = dnsmasq.get('cnames', {}) -%}
 {%- for cname, destinations in cnames|dictsort %}
 {%- if destinations is not mapping %}

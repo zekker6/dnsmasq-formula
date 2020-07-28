@@ -1,4 +1,4 @@
-{%- set dnsmasq = pillar.get('dnsmasq', {}) -%}
+{%- from "dnsmasq/map.jinja" import dnsmasq with context %}
 {%- set addresses = dnsmasq.get('addresses', {}) -%}
 {%- for address, destination in addresses|dictsort -%}
 address=/{{ address }}/{{ destination }}

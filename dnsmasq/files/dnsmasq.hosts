@@ -1,4 +1,4 @@
-{%- set dnsmasq = pillar.get('dnsmasq', {}) -%}
+{%- from "dnsmasq/map.jinja" import dnsmasq with context %}
 {%- set zones = dnsmasq.get('hosts', {}) -%}
 {%- for zone, hosts in zones|dictsort %}
 {%- if hosts is mapping %}
