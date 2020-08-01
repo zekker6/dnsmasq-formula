@@ -1,3 +1,4 @@
+---
 dnsmasq:
   settings:
     resolv-file: /etc/resolv.dnsmasq
