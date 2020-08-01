@@ -6,6 +6,7 @@ Debian:
   dnsmasq_hosts: /etc/dnsmasq.hosts
   dnsmasq_cnames: /etc/dnsmasq.d/cnames.conf
   dnsmasq_addresses: /etc/dnsmasq.d/addresses.conf
+  dnsmasq_upstream: /etc/resolv.dnsmasq
   group: root
 
 RedHat: 
@@ -15,6 +16,7 @@ RedHat:
   dnsmasq_hosts: /etc/dnsmasq.hosts
   dnsmasq_cnames: /etc/dnsmasq.d/cnames.conf
   dnsmasq_addresses: /etc/dnsmasq.d/addresses.conf
+  dnsmasq_upstream: /etc/resolv.dnsmasq
   group: root
 
 Suse: 
@@ -31,6 +33,7 @@ Arch:
   dnsmasq_hosts: /etc/dnsmasq.hosts
   dnsmasq_cnames: /etc/dnsmasq.d/cnames.conf
   dnsmasq_addresses: /etc/dnsmasq.d/addresses.conf
+  dnsmasq_upstream: /etc/resolv.dnsmasq
   group: root
 
 FreeBSD: 
@@ -40,4 +43,5 @@ FreeBSD:
   dnsmasq_hosts: /usr/local/etc/dnsmasq.hosts
   dnsmasq_cnames: /usr/local/etc/dnsmasq.d/cnames.conf
   dnsmasq_addresses: /usr/local/etc/dnsmasq.d/addresses.conf
+  dnsmasq_upstream: /usr/local/etc/resolv.dnsmasq
   group: wheel

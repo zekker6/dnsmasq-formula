@@ -1,0 +1,5 @@
+{%- from "dnsmasq/map.jinja" import dnsmasq with context %}
+
+{% for addr in dnsmasq.upstreams %}
+nameserver {{ addr }}
+{% endfor %}

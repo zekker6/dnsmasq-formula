@@ -62,6 +62,21 @@ dnsmasq_addresses:
     - watch_in:
       - service: dnsmasq
 
+{% if dnsmasq.upstreams != [] %}
+dnsmasq_upstream:
+  file.managed:
+    - name: {{ dnsmasq.dnsmasq_upstream }}
+    - source: salt://dnsmasq/files/dnsmasq.upstreams
+    - user: root
+    - group: {{ dnsmasq.group }}
+    - mode: 644
+    - template: jinja
+    - require:
+      - pkg: dnsmasq
+    - watch_in:
+      - service: dnsmasq
+{% endif %}
+
 dnsmasq:
   pkg.installed: []
   service.running:

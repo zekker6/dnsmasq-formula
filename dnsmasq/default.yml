@@ -1,0 +1,6 @@
+dnsmasq:
+  settings:
+    resolv-file: /etc/resolv.dnsmasq
+  upstreams:
+    - 1.1.1.1
+    - 1.0.0.1
