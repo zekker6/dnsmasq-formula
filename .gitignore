@@ -1,1 +1,4 @@
 .vscode
+.idea
+.kitchen/
+.kitchen.local.yml
