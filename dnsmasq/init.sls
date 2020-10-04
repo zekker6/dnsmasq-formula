@@ -62,6 +62,26 @@ dnsmasq_addresses:
     - watch_in:
       - service: dnsmasq
 
+dnsmasq_systemd_config:
+  file.managed:
+  - name: /usr/lib/systemd/system/dnsmasq.service
+  - source: salt://dnsmasq/files/dnsmasq.service
+  - user: root
+  - group: {{ dnsmasq.group }}
+  - mode: "0644"
+  - template: jinja
+  - require:
+    - pkg: dnsmasq
+  - watch_in:
+    - service: dnsmasq_systemd_config
+
+dnsmasq_systemd_reload:
+  cmd.run:
+   - name: systemctl --system daemon-reload
+   - onchanges:
+     - file: dnsmasq_systemd_config
+
+
 {% if dnsmasq.upstreams != [] %}
 dnsmasq_upstream:
   file.managed:

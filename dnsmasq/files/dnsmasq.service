@@ -1,0 +1,13 @@
+[Unit]
+Description=DNS caching server.
+After=network.target
+
+[Service]
+ExecStart=/usr/sbin/dnsmasq -k
+RemainAfterExit=no
+Restart=on-failure
+RestartSec=5s
+
+
+[Install]
+WantedBy=multi-user.target
